@@ -4,8 +4,14 @@
       <br>
       <button (click)="changeParagraphDisplay()">Display Details</button>
       <br>
-      <p *ngIf="displayParagraph">Any content</p>
-      <p *ngFor="let click of clicks">{{click}}</p>
+      <p *ngIf="displayParagraph; else nothingToDisplay">Any content</p>
+      <ng-template #nothingToDisplay>
+      <br>
+      </ng-template>
+      <p
+        *ngFor="let click of clicks; let i = index"
+        [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}"
+        [ngClass]="{'white-text': i >= 4}">{{click}}</p>
     </div>
   </div>
 </div>

@@ -7,12 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  private _displayParagraph = false;
-  var clickEvents: Array<string>;
+  displayParagraph = false;
+  //clicks: Array<> = new Array();
+  clicks = [];
 
-  changeParagraphDisplay() {
-    this._displayParagraph = !this._displayParagraph;
-    this.clickEvents.push('Click' + (this.clickEvents.length + 1));
+   changeParagraphDisplay() {
+   this.displayParagraph = !this.displayParagraph;
+   // this.clicks.push(this.clicks.length + 1);
+     this.clicks.push(new Date());
   }
 
 }
